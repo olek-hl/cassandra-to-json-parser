@@ -41,6 +41,7 @@ const parseTable = (tableName, tableData) => {
 const parseType = (type, data) => {
   const isColumnSerializedJson =
     type === "text" && helpers.isTextSerializedJSON(data);
+    
   const getSerializeTextProperties = (data) => {
     const parsedData = JSON.parse(data);
     return Object.keys(parsedData).reduce((acc, curr) => {
