@@ -1,0 +1,31 @@
+{
+  "name": "cassandra-to-json-parser",
+  "version": "1.0.0",
+  "description": "app to convert cassandra db scheme to JSON scheme",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node src/index.js",
+    "seed": "node src/db/cassandra/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olek-hl/cassandra-to-json-parser.git"
+  },
+  "keywords": [
+    "cassandra",
+    "json"
+  ],
+  "author": "Alex Hlushenok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olek-hl/cassandra-to-json-parser/issues"
+  },
+  "homepage": "https://github.com/olek-hl/cassandra-to-json-parser#readme",
+  "dependencies": {
+    "cassandra-driver": "^4.6.4"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}
