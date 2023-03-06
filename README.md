@@ -4,7 +4,7 @@ This project provides a command-line tool to convert Cassandra database table sc
 
 ## Getting Started
 
-Cassandra: 3.11.13
+Cassandra: 3.11.13/n
 Java "8.0_362"
 
 To use this tool, you will need to have Node.js installed on your system. Once Node.js is installed, you can clone this repository and install the required dependencies by running the following commands:
