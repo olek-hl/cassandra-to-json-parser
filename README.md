@@ -12,9 +12,8 @@ To use this tool, you will need to have Node.js installed on your system. Once N
 
 1. `npm i`
 
-Fill a credentials file: `src/config/config.cassandra.js`
+2. Fill a credentials file: `src/config/config.cassandra.js`
 
-2. 
 ```
 {
   hosts,
