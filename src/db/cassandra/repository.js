@@ -42,7 +42,7 @@ const getTableFirstRowData = async (client, tableName) => {
   return firstRowData.rows[0];
 };
 
-const getSchema = async (client) => {
+const getSchemas = async (client) => {
   const tableNames = await getTableNames(client);
   const tableData = {};
   for (const table of tableNames) {
@@ -57,6 +57,6 @@ const getSchema = async (client) => {
 };
 
 module.exports = {
-  getSchema,
+  getSchemas,
   executeQuery
 };
