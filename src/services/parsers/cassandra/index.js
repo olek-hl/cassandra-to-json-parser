@@ -7,12 +7,17 @@ const schemaParser = (tables) => {
   logger.info(`Converting...`);
 
   const parsedSchemas = [];
-  const tableNames = Object.keys(tables);
-  for (const table of tableNames) {
-    parsedSchemas.push(parseTable(table, tables[table]));
+  try {
+    const tableNames = Object.keys(tables);
+    for (const table of tableNames) {
+      parsedSchemas.push(parseTable(table, tables[table]));
+    }
+  
+    return parsedSchemas;
+  } catch (error) {
+    logger.error(`Unexpected error. Check your kayspace, please. Error: ${error}`)
   }
 
-  return parsedSchemas;
 };
 
 const parseTable = (tableName, tableData) => {

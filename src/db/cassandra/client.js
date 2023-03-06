@@ -2,7 +2,7 @@ const cassandra = require("cassandra-driver");
 const credentials = require("../../config/config.cassandra");
 const logger = require("../../utils/logger");
 
-const getClient = () => {
+const getClient = async () => {
   let client;
   const { username, password, hosts, datacenter, secureConnectBundle } = credentials;
 
@@ -24,7 +24,7 @@ const getClient = () => {
       authProvider: authProvider,
       localDataCenter: datacenter,
     });
-  }
+  };
 
   return client;
 };

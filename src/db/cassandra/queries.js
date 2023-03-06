@@ -12,7 +12,4 @@ module.exports = {
   getAllTables,
   getTableSchema,
   getTableFirstRow,
-  ////
-  createKeyspace,
-  createTable
 };
