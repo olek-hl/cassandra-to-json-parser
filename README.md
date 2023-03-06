@@ -9,6 +9,7 @@ Java "8.0_362"
 
 To use this tool, you will need to have Node.js installed on your system. Once Node.js is installed, you can clone this repository and install the required dependencies by running the following commands:
 
+
 1. `npm i`
 
 Fill a credentials file: `src/config/config.cassandra.js`
@@ -26,6 +27,6 @@ Fill a credentials file: `src/config/config.cassandra.js`
 
 ```
 
-3. Fill some data to db if it's empty
+3. If you need some data, just run `npm run seed`
 
 4. `npm run start`
