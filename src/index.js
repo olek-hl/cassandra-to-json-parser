@@ -6,9 +6,7 @@ const dataWriter = require("./utils/dataWriter");
 
 (async function startApp() {
 
-  const client = await cassandraConnector.getClient();
-
-  await cassandraConnector.connect(client);
+  const client = await cassandraConnector.connect();
 
   const schema = await cassandraRepository.getSchemas(client);
 
