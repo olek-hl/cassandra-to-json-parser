@@ -2,8 +2,7 @@ const cassandraConnector = require("./client");
 
 (async function seed() {
 
-    const client = await cassandraConnector.getClient();
-    await cassandraConnector.connect(client);
+    const client = await cassandraConnector.connect();
 
     const udtFields = ['name', 'age', 'email'];
 

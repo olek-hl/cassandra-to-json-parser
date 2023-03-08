@@ -7,8 +7,7 @@ describe('Cassandra DB functionality', () => {
   
     beforeAll(async () => {
       // Connect to Cassandra database
-      client = await cassandraConnector.getClient();
-      await cassandraConnector.connect(client)
+      client = await cassandraConnector.connect();
     });
   
     afterAll(async () => {
