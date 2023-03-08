@@ -36,7 +36,7 @@ const connect = async () => {
     logger.info("Connected to Cassandra");
     return client;
   } catch (error) {
-    logger.error(error);
+    logger.error(`Failed to connect to DB: ${error?.info || error}`);
   }
 };
 

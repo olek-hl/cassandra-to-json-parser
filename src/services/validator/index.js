@@ -1,8 +1,9 @@
 const credentials = require("../../config/config.cassandra");
 const logger = require("../../utils/logger");
+const queries = require('../../db/cassandra/queries');
 
-const valdateCredentials = async (client) => {
-    const { hosts, datacenter, keyspace } = credentials;
+const valdateCredentials = async () => {
+    const { hosts, datacenter } = credentials;
     if (!hosts) {
         logger.error('Specify hosts, please.');
         return;
@@ -11,15 +12,19 @@ const valdateCredentials = async (client) => {
         logger.error('Specify datacenter, please.');
         return;
     };
+};
 
-    const keyspaces = await client.execute('SELECT keyspace_name FROM system_schema.keyspaces');
+const validateKeySpaces = async (client) => {
+    const { keyspace } = credentials;
+    const keyspaces = await client.execute(queries.getKeyspaces);
 
-    const isKeyspacesMissing = keyspaces.rows.findIndex(keySpace => keySpace.keyspace_name === keyspace) > 0;
+    const isKeyspacesMissing = !keyspaces.rows.some(keySpace => keySpace.keyspace_name === keyspace);
     if (isKeyspacesMissing) {
         throw new Error('Keyspace is missing in your cluster. Check, please')
     }
-};
+}
 
 module.exports = {
-    valdateCredentials
+    valdateCredentials,
+    validateKeySpaces
 }
