@@ -29,8 +29,7 @@ const getClient = async () => {
   return client;
 };
 
-const connect = async () => {
-  const client = await getClient();
+const connect = async (client) => {
   try {
     await client.connect();
     logger.info("Connected to Cassandra");
@@ -45,6 +44,7 @@ const disconnect = async (client) => {
 };
 
 module.exports = {
+  getClient,
   connect,
   disconnect,
 };

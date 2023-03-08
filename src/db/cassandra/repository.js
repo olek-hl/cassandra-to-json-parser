@@ -42,15 +42,24 @@ const getTableFirstRowData = async (client, tableName) => {
   return firstRowData.rows[0];
 };
 
+const getTableUserDefineTypes = async (client, tableName) => {
+  logger.info(`Getting ${tableName} types...`);
+
+  const types = await executeQuery(client, queries.getAllTypes());
+  return types.rows;
+};
+
 const getSchemas = async (client) => {
   const tableNames = await getTableNames(client);
   const tableData = {};
   for (const table of tableNames) {
     const tableSchema = await getTableSchema(client, table);
     const tableFirstRowData = await getTableFirstRowData(client, table);
+    const UDTs = await getTableUserDefineTypes(client, table);
     tableData[table] = {
       schema: tableSchema,
       data: tableFirstRowData,
+      udt: UDTs
     };
   }
   return tableData;
