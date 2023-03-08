@@ -8,8 +8,11 @@ const getTableSchema = (tableName) =>
 const getTableFirstRow = (tableName) =>
   `SELECT * FROM ${keyspace}.${tableName} LIMIT 1`;
 
+const getAllTypes = () => `SELECT * FROM system_schema.types WHERE keyspace_name = '${keyspace}'`
+
 module.exports = {
   getAllTables,
   getTableSchema,
   getTableFirstRow,
+  getAllTypes,
 };

@@ -31,18 +31,18 @@ const typeMapping = {
     return str.replace(/frozen\<(.*)\>/i, "$1");
   };
   
-  const getNestedTypes = (str) => {
+  const getNestedType = (str) => {
     return str.replace(/.*\<(.*)\>/i, "$1").split(", ");
   };
   
   const inPrimitiveType = (type) => {
-    return /^[a-zA-Z]+$/.test(type);
+    return /^[a-zA-Z,]+$/.test(type);
   };
   
   module.exports = {
     typeMapping,
     removeFrozen,
     inPrimitiveType,
-    getNestedTypes,
+    getNestedType,
   };
   
