@@ -95,7 +95,7 @@ const parseComplexTypes = (type, udt) => {
         return {
           ...acc,
           [curr]: {
-            type: UDTdata.field_types[i]
+            ...parsePrimitiveTypes(UDTdata.field_types[i], udt)
           }
         }
       }, {})
